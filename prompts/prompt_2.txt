@@ -1,0 +1,17 @@
+For redesign of the groups, I was planning onto make a workflow where I pass an image. 
+The first thing it checks whether it is normal or not. If it is not normal, we go on to check among Diabetes/DR, Glaucoma, Cataract, AMD, Hypertension, Myopia. And if it doesn't exist in those, we assign the eye condition as other. We perform grouping only if the image falls under any of the diseases. 
+
+For secondary validation, 
+RFMid, BREST (any of them) ask sir about it 
+
+run seed 42 for the whole sweep, then add 2 more seeds only for the final shortlist. You said GPU isn’t a constraint, so this is cheap.
+
+
+Small CNNs (student pool): EfficientNet-B0/B3, MobileNetV3-Large, RegNetY-800MF/1.6GF, ResNet-18/34
+Large CNNs (teacher pool): ResNet-50, DenseNet-121, EfficientNet-B4/V2-S, ConvNeXt-Tiny/Small
+Transformers: Swin-T/S, ViT-B/16, DeiT-S
+Retina-specific pretraining: RETFound, a ViT pretrained on retinal images (I’ll verify the details in Step 1). It is a strong teacher candidate.
+Resolution: run 224 and 384 or 512 for the top few, since lesions in fundus images are small.
+
+Enable ablation grid 
+
